@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/normal_margin"
+        app:cardCornerRadius="@dimen/small_margin"
+        app:cardElevation="@dimen/very_small_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivProfilePicture"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_margin="@dimen/normal_margin"
+                android:src="@drawable/profile_placeholder" />
+
+
+            <LinearLayout
+                android:id="@+id/llInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/normal_margin"
+                android:layout_toEndOf="@+id/ivProfilePicture"
+                android:layout_toStartOf="@+id/btnDelete"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtUserName"
+                    style="@style/UserTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Burhanuddin Rashid" />
+
+                <TextView
+                    android:id="@+id/txtUserAge"
+                    style="@style/UserTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="25 years" />
+
+                <TextView
+                    android:id="@+id/txtDOB"
+                    style="@style/UserTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="16/2/1992" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/normal_margin"
+                android:src="@drawable/ic_edit_black_24dp" />
+
+            <ImageView
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/llInfo"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/normal_margin"
+                android:src="@drawable/ic_delete_forever_black_24dp" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
