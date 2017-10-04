@@ -35,7 +35,7 @@ public class Converters {
     public static String fromBitmapToBase64(Bitmap bitmap) {
         if (bitmap != null) {
             ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOS);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 25, byteArrayOS);
             return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
         } else {
             return null;

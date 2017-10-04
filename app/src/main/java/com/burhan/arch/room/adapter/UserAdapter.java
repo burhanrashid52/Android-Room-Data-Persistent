@@ -40,6 +40,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = userList.get(position);
+        holder.txtItemNumber.setText((position + 1) + ".");
         holder.txtUserName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
         holder.txtUserAge.setText(String.format("%d years", user.getAge()));
         holder.txtUserDob.setText(getDateOfBirth(user.getDateOfBirth()));
@@ -58,17 +59,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     public void setUserList(List<User> userList) {
+        //   DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtilUser(userList, this.userList));
+        //  diffResult.dispatchUpdatesTo(this);
         this.userList = userList;
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtUserName, txtUserAge, txtUserDob;
+        TextView txtUserName, txtUserAge, txtUserDob, txtItemNumber;
         ImageView btnDelete, btnUpdate, ivProfilePic;
 
         public ViewHolder(final View itemView) {
             super(itemView);
             txtUserName = itemView.findViewById(R.id.txtUserName);
+            txtItemNumber = itemView.findViewById(R.id.txtItemNumber);
             txtUserAge = itemView.findViewById(R.id.txtUserAge);
             txtUserDob = itemView.findViewById(R.id.txtDOB);
             btnDelete = itemView.findViewById(R.id.btnDelete);

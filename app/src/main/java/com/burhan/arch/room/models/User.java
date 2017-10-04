@@ -75,4 +75,12 @@ public class User {
     public void setUserBitmapImage(Bitmap userBitmapImage) {
         this.userBitmapImage = userBitmapImage;
     }
+
+    public boolean equals(User obj) {
+        return uid == obj.getUid()
+                && firstName.equals(obj.getFirstName())
+                && lastName.equals(obj.getLastName())
+                && age == obj.getAge()
+                && dateOfBirth.getTime() == obj.getDateOfBirth().getTime();
+    }
 }

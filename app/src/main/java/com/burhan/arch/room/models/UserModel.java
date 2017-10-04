@@ -25,4 +25,8 @@ public class UserModel extends AndroidViewModel {
     public LiveData<List<User>> getAllUser() {
         return userDao.getAll();
     }
+
+    public void insertUsers(List<User> userList) {
+        userDao.insertAll(userList);
+    }
 }

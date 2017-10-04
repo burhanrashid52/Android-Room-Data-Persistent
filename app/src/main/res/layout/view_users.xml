@@ -18,9 +18,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/txtItemNumber"
+                tools:text="1."
+                android:textSize="@dimen/normal_text_size"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
             <ImageView
                 android:id="@+id/ivProfilePicture"
                 android:layout_width="75dp"
+                android:layout_toEndOf="@id/txtItemNumber"
                 android:layout_height="75dp"
                 android:layout_margin="@dimen/normal_margin"
                 android:src="@drawable/profile_placeholder" />

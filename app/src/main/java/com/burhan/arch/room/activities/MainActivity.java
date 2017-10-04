@@ -16,11 +16,18 @@ import android.widget.TextView;
 import com.burhan.arch.room.R;
 import com.burhan.arch.room.adapter.UserAdapter;
 import com.burhan.arch.room.dbutils.AppDatabase;
+import com.burhan.arch.room.dbutils.RoomDB;
+import com.burhan.arch.room.dbutils.Utils;
 import com.burhan.arch.room.fragments.AddUserDialogFragment;
 import com.burhan.arch.room.models.User;
 import com.burhan.arch.room.models.UserModel;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.burhan.arch.room.dbutils.Utils.getRandomDob;
+import static com.burhan.arch.room.dbutils.Utils.getRandomString;
+import static com.burhan.arch.room.dbutils.Utils.randBetween;
 
 public class MainActivity extends AppCompatLifecycleActivity {
 
@@ -28,7 +35,6 @@ public class MainActivity extends AppCompatLifecycleActivity {
     private RecyclerView rvUsers;
     private TextView txtNoData;
     private FloatingActionButton fabAdd;
-    private AppDatabase appDatabase;
     private UserAdapter userAdapter;
     private UserModel userModel;
 
@@ -41,7 +47,6 @@ public class MainActivity extends AppCompatLifecycleActivity {
         rvUsers.setLayoutManager(new LinearLayoutManager(this));
         userAdapter = new UserAdapter();
         rvUsers.setAdapter(userAdapter);
-
         userModel = ViewModelProviders.of(this).get(UserModel.class);
 
         userModel.getAllUser().observe(MainActivity.this, new Observer<List<User>>() {
@@ -89,7 +94,17 @@ public class MainActivity extends AppCompatLifecycleActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_dummy) {
+            List<User> usersList = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                User user = new User();
+                user.setFirstName(getRandomString(randBetween(6, 10)));
+                user.setLastName(getRandomString(randBetween(6, 10)));
+                user.setAge(randBetween(20, 80));
+                user.setDateOfBirth(getRandomDob());
+                usersList.add(user);
+            }
+            userModel.insertUsers(usersList);
             return true;
         }
 
