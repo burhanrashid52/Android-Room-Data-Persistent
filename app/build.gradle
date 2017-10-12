@@ -1,8 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
+
     defaultConfig {
         applicationId "com.burhan.arch.room"
         minSdkVersion rootProject.minSdkVersion
@@ -10,6 +12,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /*jackOptions {
+            enabled true
+        }*/
     }
     buildTypes {
         release {
@@ -17,6 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    /*compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }*/
 }
 
 dependencies {
@@ -29,6 +40,7 @@ dependencies {
 
     compile "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+    compile "android.arch.paging:runtime:$rootProject.paging"
 
     compile "android.arch.lifecycle:runtime:$rootProject.lifeCycleVersion"
     compile "android.arch.lifecycle:extensions:$rootProject.lifeCycleVersion"

@@ -1,7 +1,10 @@
 package com.burhan.arch.room.adapter;
 
+import android.arch.paging.PagedListAdapter;
 import android.content.DialogInterface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.recyclerview.extensions.DiffCallback;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +26,13 @@ import static com.burhan.arch.room.dbutils.Utils.getDateOfBirth;
  * Created by Burhanuddin on 9/9/2017.
  */
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
-    private List<User> userList;
+public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> {
+    //  private List<User> userList;
     private onItemClickListener mOnItemClickListener;
+
+    public UserAdapter() {
+        super(DIFF_CALLBACK);
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,32 +44,27 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         void onClick(View view, int position);
     }
 
+
+    public User getUserItem(int position) {
+        return getItem(position);
+    }
+
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        User user = userList.get(position);
-        holder.txtItemNumber.setText((position + 1) + ".");
-        holder.txtUserName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-        holder.txtUserAge.setText(String.format("%d years", user.getAge()));
-        holder.txtUserDob.setText(getDateOfBirth(user.getDateOfBirth()));
-        if (user.getUserBitmapImage() != null) {
-            holder.ivProfilePic.setImageBitmap(user.getUserBitmapImage());
+        User user = getItem(position);
+        if (user != null) {
+            holder.txtItemNumber.setText((position + 1) + ".");
+            holder.txtUserName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
+            holder.txtUserAge.setText(String.format("%d years", user.getAge()));
+            holder.txtUserDob.setText(getDateOfBirth(user.getDateOfBirth()));
+            if (user.getUserBitmapImage() != null) {
+                holder.ivProfilePic.setImageBitmap(user.getUserBitmapImage());
+            }
         }
     }
 
     public void setOnItemClickListener(onItemClickListener onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
-    }
-
-    @Override
-    public int getItemCount() {
-        return userList != null ? userList.size() : 0;
-    }
-
-    public void setUserList(List<User> userList) {
-        //   DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtilUser(userList, this.userList));
-        //  diffResult.dispatchUpdatesTo(this);
-        this.userList = userList;
-        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -97,8 +99,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             AppDatabase appDatabase = RoomDB.getDefaultInstance();
-                            appDatabase.userDao().delete(userList.get(getLayoutPosition()));
-                            userList.remove(getLayoutPosition());
+                            appDatabase.userDao().delete(getItem(getLayoutPosition()));
+                            //  userList.remove(getLayoutPosition());
                             notifyItemRemoved(getLayoutPosition());
                             dialogInterface.dismiss();
                         }
@@ -115,7 +117,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
     }
 
-    public User getItem(int position) {
-        return userList.get(position);
-    }
+
+    public static final DiffCallback<User> DIFF_CALLBACK = new DiffCallback<User>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull User oldUser, @NonNull User newUser) {
+            // User properties may have changed if reloaded from the DB, but ID is fixed
+            return oldUser.getUid() == newUser.getUid();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull User oldUser, @NonNull User newUser) {
+            // NOTE: if you use equals, your object must properly override Object#equals()
+            // Incorrectly returning false here will result in too many animations.
+            return oldUser.equals(newUser);
+        }
+    };
 }

@@ -27,9 +27,10 @@ ext {
     buildToolsVersion = '26.0.1'
 
     // dependencies versions
-    supportLibraryVersion = '26.0.1'
-    roomVersion = '1.0.0-alpha9'
-    lifeCycleVersion = '1.0.0-alpha9'
+    supportLibraryVersion = '26.1.0'
+    roomVersion = '1.0.0-beta2'
+    paging = '1.0.0-alpha3'
+    lifeCycleVersion = '1.0.0-beta2'
 }
 
 task clean(type: Delete) {

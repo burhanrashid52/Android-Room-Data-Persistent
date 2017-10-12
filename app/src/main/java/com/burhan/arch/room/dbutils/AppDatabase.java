@@ -9,7 +9,7 @@ import com.burhan.arch.room.models.User;
 
 
 //Here initialise daos with respective tables
-@Database(entities = {User.class}, version = 3)
+@Database(entities = {User.class}, version = 3, exportSchema = false)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
