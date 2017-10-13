@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatLifecycleActivity {
     }
 
     private void updateUI() {
+
         int itemCount = userAdapter.getItemCount();
         txtNoData.setVisibility(itemCount == 0 ? View.VISIBLE : View.GONE);
         rvUsers.setVisibility(itemCount == 0 ? View.GONE : View.VISIBLE);
