@@ -1,28 +1,24 @@
 package com.burhan.arch.room.activities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.burhan.arch.room.R;
 import com.burhan.arch.room.adapter.UserAdapter;
 import com.burhan.arch.room.fragments.AddUserDialogFragment;
-import com.burhan.arch.room.models.User;
 import com.burhan.arch.room.models.UserModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatLifecycleActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private RecyclerView rvUsers;
