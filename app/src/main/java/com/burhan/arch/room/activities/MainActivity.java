@@ -1,6 +1,7 @@
 package com.burhan.arch.room.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,11 +13,15 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.burhan.arch.room.AppController;
 import com.burhan.arch.room.R;
 import com.burhan.arch.room.adapter.UserAdapter;
 import com.burhan.arch.room.fragments.AddUserDialogFragment;
+import com.burhan.arch.room.models.Song;
 import com.burhan.arch.room.models.UserModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
         userAdapter = new UserAdapter();
         rvUsers.setAdapter(userAdapter);
         userModel = ViewModelProviders.of(this).get(UserModel.class);
+
+        List<Song> songs = AppController.songDb.songsDao().getSongs();
+        Log.e(TAG, "onCreate: " + songs.size());
+
+        for (Song song : songs) {
+            Log.d(TAG, "Song [" + song + "]");
+        }
 
         /*userModel.getAllUser().observe(MainActivity.this, new Observer<List<User>>() {
             @Override
