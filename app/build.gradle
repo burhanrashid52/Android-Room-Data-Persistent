@@ -11,7 +11,7 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         /*jackOptions {
             enabled true
@@ -31,20 +31,20 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 
-    compile "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
-    compile "android.arch.paging:runtime:$rootProject.paging"
+    implementation 'androidx.room:room-runtime:2.2.3'
+    annotationProcessor 'androidx.room:room-implementationr:2.2.3'
+    implementation 'androidx.paging:paging-runtime:2.1.1'
 
-    compile "android.arch.lifecycle:runtime:$rootProject.lifeCycleVersion"
-    compile "android.arch.lifecycle:extensions:$rootProject.lifeCycleVersion"
-    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifeCycleVersion"
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-implementationr:2.2.0'
 
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

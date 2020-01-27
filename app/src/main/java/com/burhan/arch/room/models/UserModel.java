@@ -1,9 +1,9 @@
 package com.burhan.arch.room.models;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-import android.arch.paging.PagedList;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.paging.PagedList;
 
 import com.burhan.arch.room.dao.UserDao;
 import com.burhan.arch.room.dbutils.RoomDB;
@@ -45,7 +45,7 @@ public class UserModel extends AndroidViewModel {
         userDao.insertAll(usersList);
     }
 
-    public LiveData<PagedList<User>> getAllUserPagination() {
+   /* public LiveData<PagedList<User>> getAllUserPagination() {
         return userDao.byPagination().create(0,
                 //  initial load position  0,
                 new PagedList.Config.Builder()
@@ -53,5 +53,5 @@ public class UserModel extends AndroidViewModel {
                         .setPageSize(10)
                         .setPrefetchDistance(5)
                         .build());
-    }
+    }*/
 }

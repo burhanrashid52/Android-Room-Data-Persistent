@@ -1,6 +1,6 @@
 package com.burhan.arch.room.dbutils;
 
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.Context;
 
 import com.burhan.arch.room.AppController;

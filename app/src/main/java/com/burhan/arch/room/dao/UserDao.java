@@ -1,12 +1,11 @@
 package com.burhan.arch.room.dao;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.paging.LivePagedListProvider;
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Delete;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.Query;
-import android.arch.persistence.room.Update;
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
 
 import com.burhan.arch.room.models.User;
 
@@ -18,8 +17,8 @@ public interface UserDao {
     @Query("SELECT * FROM user")
     LiveData<List<User>> getAll();
 
-    @Query("SELECT * FROM user ORDER BY uid")
-    public abstract LivePagedListProvider<Integer, User> byPagination();
+    // @Query("SELECT * FROM user ORDER BY uid")
+    //  public abstract LivePagedListProvider<Integer, User> byPagination();
 
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);

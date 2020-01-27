@@ -1,6 +1,6 @@
 package com.burhan.arch.room.dbutils;
 
-import android.arch.persistence.room.TypeConverter;
+import androidx.room.TypeConverter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;

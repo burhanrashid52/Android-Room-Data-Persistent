@@ -1,8 +1,8 @@
 package com.burhan.arch.room.activities;
 
-import android.arch.lifecycle.LifecycleRegistry;
-import android.arch.lifecycle.LifecycleRegistryOwner;
-import android.support.v7.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.LifecycleRegistryOwner;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AppCompatLifecycleActivity extends AppCompatActivity implements LifecycleRegistryOwner {
 

@@ -10,6 +10,7 @@ import java.util.Random;
  */
 
 public class Utils {
+
     public static String getDateOfBirth(Date userDob) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(userDob);

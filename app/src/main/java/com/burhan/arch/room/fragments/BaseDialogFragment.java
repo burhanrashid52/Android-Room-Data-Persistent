@@ -1,9 +1,9 @@
 package com.burhan.arch.room.fragments;
 
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.DialogFragment;
+import androidx.core.content.ContextCompat;
 import android.widget.Toast;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;

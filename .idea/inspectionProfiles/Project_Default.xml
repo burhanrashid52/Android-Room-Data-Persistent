@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AbstractClassNamingConvention" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AssignmentOrReturnOfFieldWithMutableTypeMerged" />
+    <inspection_tool class="CatchMayIgnoreExceptionMerged" />
+    <inspection_tool class="ClassNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_regex" value="[A-Z][A-Za-z\d]*" />
+      <option name="m_minLength" value="3" />
+      <option name="m_maxLength" value="64" />
+    </inspection_tool>
+    <inspection_tool class="ElementOnlyUsedFromTestCode" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MethodOverridesPackageLocalMethod" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MethodOverridesPrivateMethod" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="NewClassNamingConventionMerged" />
+    <inspection_tool class="RedundantThrowsDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReturnOfCollectionField" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignorePrivateMethods" value="true" />
+    </inspection_tool>
+    <inspection_tool class="SuperClassHasFrequentlyUsedInheritors" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnusedCatchParameter" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_ignoreCatchBlocksWithComments" value="false" />
+      <option name="m_ignoreTestCases" value="false" />
+    </inspection_tool>
+    <inspection_tool class="UnusedImport" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>

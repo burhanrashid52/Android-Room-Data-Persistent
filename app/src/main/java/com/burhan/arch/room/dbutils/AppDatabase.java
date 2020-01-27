@@ -1,8 +1,8 @@
 package com.burhan.arch.room.dbutils;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
-import android.arch.persistence.room.TypeConverters;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import com.burhan.arch.room.dao.UserDao;
 import com.burhan.arch.room.models.User;

@@ -1,27 +1,26 @@
 package com.burhan.arch.room.activities;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.arch.paging.PagedList;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.paging.PagedList;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.burhan.arch.room.R;
 import com.burhan.arch.room.adapter.UserAdapter;
 import com.burhan.arch.room.fragments.AddUserDialogFragment;
 import com.burhan.arch.room.models.User;
 import com.burhan.arch.room.models.UserModel;
-
-import java.util.List;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatLifecycleActivity {
 
@@ -51,14 +50,14 @@ public class MainActivity extends AppCompatLifecycleActivity {
             }
         });*/
 
-        userModel.getAllUserPagination().observe(this, new Observer<PagedList<User>>() {
+      /*  userModel.getAllUserPagination().observe(this, new Observer<PagedList<User>>() {
             @Override
             public void onChanged(@Nullable PagedList<User> users) {
                 Log.e(TAG, "onChanged: " + users.size());
                 userAdapter.setList(users);
                 updateUI();
             }
-        });
+        });*/
 
         userAdapter.setOnItemClickListener(new UserAdapter.onItemClickListener() {
             @Override

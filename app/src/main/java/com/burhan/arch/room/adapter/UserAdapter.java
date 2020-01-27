@@ -1,23 +1,22 @@
 package com.burhan.arch.room.adapter;
 
-import android.arch.paging.PagedListAdapter;
 import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.recyclerview.extensions.DiffCallback;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.paging.PagedListAdapter;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.burhan.arch.room.R;
 import com.burhan.arch.room.dbutils.AppDatabase;
 import com.burhan.arch.room.dbutils.RoomDB;
 import com.burhan.arch.room.models.User;
-
-import java.util.List;
 
 import static com.burhan.arch.room.dbutils.Utils.getDateOfBirth;
 
@@ -33,6 +32,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
     public UserAdapter() {
         super(DIFF_CALLBACK);
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -118,7 +118,7 @@ public class UserAdapter extends PagedListAdapter<User, UserAdapter.ViewHolder> 
     }
 
 
-    public static final DiffCallback<User> DIFF_CALLBACK = new DiffCallback<User>() {
+    public static final DiffUtil.ItemCallback<User> DIFF_CALLBACK = new DiffUtil.ItemCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldUser, @NonNull User newUser) {
             // User properties may have changed if reloaded from the DB, but ID is fixed
